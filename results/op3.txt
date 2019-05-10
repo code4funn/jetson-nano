@@ -1,0 +1,20 @@
+ak@nano:/usr/src/tensorrt/bin$ ./trtexec --output=prob --deploy=../data/googlenet/inception_v4.prototxt --fp16 --batch=1
+output: prob
+deploy: ../data/googlenet/inception_v4.prototxt
+fp16
+batch: 1
+Input "data": 3x299x299
+Output "prob": 1000x1x1
+name=data, bindingIndex=0, buffers.size()=2
+name=prob, bindingIndex=1, buffers.size()=2
+Average over 10 runs is 95.2466 ms (host walltime is 95.3221 ms, 99% percentile time is 99.2104).
+Average over 10 runs is 95.7694 ms (host walltime is 95.8406 ms, 99% percentile time is 100.545).
+Average over 10 runs is 95.6634 ms (host walltime is 95.7309 ms, 99% percentile time is 100.672).
+Average over 10 runs is 95.5227 ms (host walltime is 95.5938 ms, 99% percentile time is 98.483).
+Average over 10 runs is 95.7504 ms (host walltime is 95.8238 ms, 99% percentile time is 100.812).
+Average over 10 runs is 95.3544 ms (host walltime is 95.427 ms, 99% percentile time is 97.8439).
+Average over 10 runs is 95.7268 ms (host walltime is 95.8075 ms, 99% percentile time is 100.623).
+Average over 10 runs is 95.6997 ms (host walltime is 95.769 ms, 99% percentile time is 100.889).
+Average over 10 runs is 95.8163 ms (host walltime is 95.8915 ms, 99% percentile time is 100.917).
+Average over 10 runs is 95.7247 ms (host walltime is 95.7985 ms, 99% percentile time is 100.892).
+

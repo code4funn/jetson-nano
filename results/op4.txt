@@ -1,0 +1,20 @@
+ak@nano:/usr/src/tensorrt/bin$ ./trtexec --output=prob --deploy=../data/googlenet/vgg19_N2.prototxt --fp16 --batch=1
+output: prob
+deploy: ../data/googlenet/vgg19_N2.prototxt
+fp16
+batch: 1
+Input "data": 3x224x224
+Output "prob": 1000x1x1
+name=data, bindingIndex=0, buffers.size()=2
+name=prob, bindingIndex=1, buffers.size()=2
+Average over 10 runs is 128.84 ms (host walltime is 130.094 ms, 99% percentile time is 205.097).
+Average over 10 runs is 116.22 ms (host walltime is 117.596 ms, 99% percentile time is 118.215).
+Average over 10 runs is 116.824 ms (host walltime is 118.256 ms, 99% percentile time is 120.214).
+Average over 10 runs is 116.894 ms (host walltime is 118.251 ms, 99% percentile time is 119.57).
+Average over 10 runs is 116.81 ms (host walltime is 118.115 ms, 99% percentile time is 118.916).
+Average over 10 runs is 116.798 ms (host walltime is 118.167 ms, 99% percentile time is 118.568).
+Average over 10 runs is 116.429 ms (host walltime is 117.963 ms, 99% percentile time is 119.107).
+Average over 10 runs is 116.682 ms (host walltime is 117.997 ms, 99% percentile time is 118.038).
+Average over 10 runs is 116.953 ms (host walltime is 118.268 ms, 99% percentile time is 120.234).
+Average over 10 runs is 116.659 ms (host walltime is 117.982 ms, 99% percentile time is 121.008).
+

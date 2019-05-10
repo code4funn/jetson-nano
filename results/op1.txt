@@ -1,0 +1,33 @@
+ak@nano:/usr/src/tensorrt/bin$ sudo ./sample_uff_ssd_rect
+../data/ssd/sample_unpruned_mobilenet_v2.uff
+Registering UFF model
+Registered Input
+Registered output NMS
+Creating engine
+Begin parsing model...
+End parsing model...
+Begin building engine...
+Time lapsed to create an engine: 194910ms
+End building engine...
+Created engine
+ Num batches  1
+ Data Size  270000
+*** deserializing
+3 Binding
+Allocating buffer sizes for binding index: 0 of size : 270000 * 4 B
+Allocating buffer sizes for binding index: 1 of size : 700 * 4 B
+Allocating buffer sizes for binding index: 2 of size : 1 * 4 B
+Time taken for inference per run is 26.1893 ms.
+Time taken for inference per run is 26.2242 ms.
+Time taken for inference per run is 26.227 ms.
+Time taken for inference per run is 26.2061 ms.
+Time taken for inference per run is 26.2761 ms.
+Time taken for inference per run is 26.229 ms.
+Time taken for inference per run is 26.2538 ms.
+Time taken for inference per run is 26.2081 ms.
+Time taken for inference per run is 26.1875 ms.
+Time taken for inference per run is 26.2344 ms.
+Average time spent per iteration is 26.2235 ms.
+Time taken for inference is 26.2344 ms.
+ KeepCount 100
+

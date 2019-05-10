@@ -1,0 +1,30 @@
+ak@nano:/usr/src/tensorrt/bin$ sudo ./trtexec --output=output_0 --onnx=/home/ak/Super-Resolution-BSD500/super_resolution_bsd500.onnx --fp16 --batch=1
+output: output_0
+onnx: /home/ak/Super-Resolution-BSD500/super_resolution_bsd500.onnx
+fp16
+batch: 1
+----------------------------------------------------------------
+Input filename:   /home/ak/Super-Resolution-BSD500/super_resolution_bsd500.onnx
+ONNX IR version:  0.0.3
+Opset version:    9
+Producer name:    pytorch
+Producer version: 0.4
+Domain:           
+Model version:    0
+Doc string:       
+----------------------------------------------------------------
+ ----- Parsing of ONNX model /home/ak/Super-Resolution-BSD500/super_resolution_bsd500.onnx is Done ---- 
+name=input_0, bindingIndex=0, buffers.size()=3
+name=output_0, bindingIndex=1, buffers.size()=3
+name=output_0, bindingIndex=1, buffers.size()=3
+Average over 10 runs is 85.8428 ms (host walltime is 87.2419 ms, 99% percentile time is 180.957).
+Average over 10 runs is 66.2911 ms (host walltime is 67.4748 ms, 99% percentile time is 68.4855).
+Average over 10 runs is 66.2323 ms (host walltime is 67.3943 ms, 99% percentile time is 71.9254).
+Average over 10 runs is 66.7303 ms (host walltime is 67.7006 ms, 99% percentile time is 71.7457).
+Average over 10 runs is 66.3732 ms (host walltime is 67.3249 ms, 99% percentile time is 72.5851).
+Average over 10 runs is 66.7156 ms (host walltime is 67.9148 ms, 99% percentile time is 70.915).
+Average over 10 runs is 66.1347 ms (host walltime is 66.7059 ms, 99% percentile time is 72.1165).
+Average over 10 runs is 66.9459 ms (host walltime is 68.2478 ms, 99% percentile time is 72.8489).
+Average over 10 runs is 66.9729 ms (host walltime is 68.3186 ms, 99% percentile time is 72.6674).
+Average over 10 runs is 66.9711 ms (host walltime is 68.0846 ms, 99% percentile time is 72.1754).
+

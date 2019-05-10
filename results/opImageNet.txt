@@ -1,0 +1,144 @@
+ak@nano:~/jetson-inference/build/aarch64/bin$ ./imagenet-console orange_0.jpg output_0.jpg
+imagenet-console
+  args (3):  0 [./imagenet-console]  1 [orange_0.jpg]  2 [output_0.jpg]  
+
+
+imageNet -- loading classification network model from:
+         -- prototxt     networks/googlenet.prototxt
+         -- model        networks/bvlc_googlenet.caffemodel
+         -- class_labels networks/ilsvrc12_synset_words.txt
+         -- input_blob   'data'
+         -- output_blob  'prob'
+         -- batch_size   2
+
+[TRT]  TensorRT version 5.0.6
+[TRT]  detected model format - caffe  (extension '.caffemodel')
+[TRT]  desired precision specified for GPU: FASTEST
+[TRT]  requested fasted precision for device GPU without providing valid calibrator, disabling INT8
+[TRT]  native precisions detected for GPU:  FP32, FP16
+[TRT]  selecting fastest native precision for GPU:  FP16
+[TRT]  attempting to open engine cache file networks/bvlc_googlenet.caffemodel.2.1.GPU.FP16.engine
+[TRT]  cache file not found, profiling network model on device GPU
+[TRT]  device GPU, loading networks/googlenet.prototxt networks/bvlc_googlenet.caffemodel
+[TRT]  retrieved Output tensor "prob":  1000x1x1
+[TRT]  retrieved Input tensor "data":  3x224x224
+[TRT]  device GPU, configuring CUDA engine
+[TRT]  device GPU, building FP16:  ON
+[TRT]  device GPU, building INT8:  OFF
+[TRT]  device GPU, building CUDA engine (this may take a few minutes the first time a network is loaded)
+[TRT]  device GPU, completed building CUDA engine
+[TRT]  network profiling complete, writing engine cache to networks/bvlc_googlenet.caffemodel.2.1.GPU.FP16.engine
+[TRT]  device GPU, completed writing engine cache to networks/bvlc_googlenet.caffemodel.2.1.GPU.FP16.engine
+[TRT]  device GPU, networks/bvlc_googlenet.caffemodel loaded
+[TRT]  device GPU, CUDA engine context initialized with 2 bindings
+[TRT]  binding -- index   0
+               -- name    'data'
+               -- type    FP32
+               -- in/out  INPUT
+               -- # dims  3
+               -- dim #0  3 (CHANNEL)
+               -- dim #1  224 (SPATIAL)
+               -- dim #2  224 (SPATIAL)
+[TRT]  binding -- index   1
+               -- name    'prob'
+               -- type    FP32
+               -- in/out  OUTPUT
+               -- # dims  3
+               -- dim #0  1000 (CHANNEL)
+               -- dim #1  1 (SPATIAL)
+               -- dim #2  1 (SPATIAL)
+[TRT]  binding to input 0 data  binding index:  0
+[TRT]  binding to input 0 data  dims (b=2 c=3 h=224 w=224) size=1204224
+[cuda]  cudaAllocMapped 1204224 bytes, CPU 0x100e30000 GPU 0x100e30000
+[TRT]  binding to output 0 prob  binding index:  1
+[TRT]  binding to output 0 prob  dims (b=2 c=1000 h=1 w=1) size=8000
+[cuda]  cudaAllocMapped 8000 bytes, CPU 0x100f60000 GPU 0x100f60000
+device GPU, networks/bvlc_googlenet.caffemodel initialized.
+[TRT]  networks/bvlc_googlenet.caffemodel loaded
+imageNet -- loaded 1000 class info entries
+networks/bvlc_googlenet.caffemodel initialized.
+loaded image  orange_0.jpg  (1920 x 1920)  58982400 bytes
+[cuda]  cudaAllocMapped 58982400 bytes, CPU 0x101060000 GPU 0x101060000
+[TRT]  layer conv1/7x7_s2 + conv1/relu_7x7 - 23.516146 ms
+[TRT]  layer pool1/3x3_s2 - 3.465677 ms
+[TRT]  layer pool1/norm1 input reformatter 0 - 1.977500 ms
+[TRT]  layer pool1/norm1 - 0.588073 ms
+[TRT]  layer conv2/3x3_reduce + conv2/relu_3x3_reduce - 1.351458 ms
+[TRT]  layer conv2/3x3 + conv2/relu_3x3 - 29.410469 ms
+[TRT]  layer conv2/norm2 - 4.595000 ms
+[TRT]  layer pool2/3x3_s2 - 1.666510 ms
+[TRT]  layer inception_3a/1x1 + inception_3a/relu_1x1 || inception_3a/3x3_reduce + inception_3a/relu_3x3_reduce || inception_3a/5x5_reduce + inception_3a/relu_5x5_reduce - 8.975625 ms
+[TRT]  layer inception_3a/3x3 + inception_3a/relu_3x3 - 7.811146 ms
+[TRT]  layer inception_3a/5x5 + inception_3a/relu_5x5 - 0.214948 ms
+[TRT]  layer inception_3a/pool - 0.235625 ms
+[TRT]  layer inception_3a/pool_proj + inception_3a/relu_pool_proj - 0.145469 ms
+[TRT]  layer inception_3a/1x1 copy - 0.026354 ms
+[TRT]  layer inception_3b/1x1 + inception_3b/relu_1x1 || inception_3b/3x3_reduce + inception_3b/relu_3x3_reduce || inception_3b/5x5_reduce + inception_3b/relu_5x5_reduce - 0.999062 ms
+[TRT]  layer inception_3b/3x3 + inception_3b/relu_3x3 - 2.982865 ms
+[TRT]  layer inception_3b/5x5 + inception_3b/relu_5x5 - 0.957552 ms
+[TRT]  layer inception_3b/pool - 0.308646 ms
+[TRT]  layer inception_3b/pool_proj + inception_3b/relu_pool_proj - 0.233750 ms
+[TRT]  layer inception_3b/1x1 copy - 0.045573 ms
+[TRT]  layer pool3/3x3_s2 - 1.436510 ms
+[TRT]  layer inception_4a/1x1 + inception_4a/relu_1x1 || inception_4a/3x3_reduce + inception_4a/relu_3x3_reduce || inception_4a/5x5_reduce + inception_4a/relu_5x5_reduce - 0.526146 ms
+[TRT]  layer inception_4a/3x3 + inception_4a/relu_3x3 - 0.761823 ms
+[TRT]  layer inception_4a/5x5 + inception_4a/relu_5x5 - 0.125312 ms
+[TRT]  layer inception_4a/pool - 0.126354 ms
+[TRT]  layer inception_4a/pool_proj + inception_4a/relu_pool_proj - 0.142813 ms
+[TRT]  layer inception_4a/1x1 copy - 0.022344 ms
+[TRT]  layer inception_4b/1x1 + inception_4b/relu_1x1 || inception_4b/3x3_reduce + inception_4b/relu_3x3_reduce || inception_4b/5x5_reduce + inception_4b/relu_5x5_reduce - 0.838958 ms
+[TRT]  layer inception_4b/3x3 + inception_4b/relu_3x3 - 0.820573 ms
+[TRT]  layer inception_4b/5x5 + inception_4b/relu_5x5 - 0.599531 ms
+[TRT]  layer inception_4b/pool - 0.159011 ms
+[TRT]  layer inception_4b/pool_proj + inception_4b/relu_pool_proj - 0.147812 ms
+[TRT]  layer inception_4b/1x1 copy - 0.019531 ms
+[TRT]  layer inception_4c/1x1 + inception_4c/relu_1x1 || inception_4c/3x3_reduce + inception_4c/relu_3x3_reduce || inception_4c/5x5_reduce + inception_4c/relu_5x5_reduce - 0.749584 ms
+[TRT]  layer inception_4c/3x3 + inception_4c/relu_3x3 - 1.166302 ms
+[TRT]  layer inception_4c/5x5 + inception_4c/relu_5x5 - 0.172344 ms
+[TRT]  layer inception_4c/pool - 0.145208 ms
+[TRT]  layer inception_4c/pool_proj + inception_4c/relu_pool_proj - 0.147187 ms
+[TRT]  layer inception_4c/1x1 copy - 0.018594 ms
+[TRT]  layer inception_4d/1x1 + inception_4d/relu_1x1 || inception_4d/3x3_reduce + inception_4d/relu_3x3_reduce || inception_4d/5x5_reduce + inception_4d/relu_5x5_reduce - 0.807604 ms
+[TRT]  layer inception_4d/3x3 + inception_4d/relu_3x3 - 2.099584 ms
+[TRT]  layer inception_4d/5x5 + inception_4d/relu_5x5 input reformatter 0 - 0.019218 ms
+[TRT]  layer inception_4d/5x5 + inception_4d/relu_5x5 - 0.375573 ms
+[TRT]  layer inception_4d/5x5 + inception_4d/relu_5x5 output reformatter 0 - 0.032448 ms
+[TRT]  layer inception_4d/pool - 0.158490 ms
+[TRT]  layer inception_4d/pool_proj + inception_4d/relu_pool_proj - 0.148333 ms
+[TRT]  layer inception_4d/1x1 copy - 0.015573 ms
+[TRT]  layer inception_4e/1x1 + inception_4e/relu_1x1 || inception_4e/3x3_reduce + inception_4e/relu_3x3_reduce || inception_4e/5x5_reduce + inception_4e/relu_5x5_reduce - 0.867292 ms
+[TRT]  layer inception_4e/3x3 + inception_4e/relu_3x3 - 0.878177 ms
+[TRT]  layer inception_4e/5x5 + inception_4e/relu_5x5 - 0.350156 ms
+[TRT]  layer inception_4e/pool - 0.165000 ms
+[TRT]  layer inception_4e/pool_proj + inception_4e/relu_pool_proj - 0.356771 ms
+[TRT]  layer inception_4e/1x1 copy - 0.028489 ms
+[TRT]  layer pool4/3x3_s2 - 0.151771 ms
+[TRT]  layer inception_5a/1x1 + inception_5a/relu_1x1 || inception_5a/3x3_reduce + inception_5a/relu_3x3_reduce || inception_5a/5x5_reduce + inception_5a/relu_5x5_reduce - 0.634532 ms
+[TRT]  layer inception_5a/3x3 + inception_5a/relu_3x3 - 0.513854 ms
+[TRT]  layer inception_5a/5x5 + inception_5a/relu_5x5 - 0.204843 ms
+[TRT]  layer inception_5a/pool - 0.071407 ms
+[TRT]  layer inception_5a/pool_proj + inception_5a/relu_pool_proj - 0.210364 ms
+[TRT]  layer inception_5a/1x1 copy - 0.014219 ms
+[TRT]  layer inception_5b/1x1 + inception_5b/relu_1x1 || inception_5b/3x3_reduce + inception_5b/relu_3x3_reduce || inception_5b/5x5_reduce + inception_5b/relu_5x5_reduce - 0.729010 ms
+[TRT]  layer inception_5b/3x3 + inception_5b/relu_3x3 - 0.709688 ms
+[TRT]  layer inception_5b/5x5 + inception_5b/relu_5x5 - 0.288854 ms
+[TRT]  layer inception_5b/pool - 0.087292 ms
+[TRT]  layer inception_5b/pool_proj + inception_5b/relu_pool_proj - 0.210625 ms
+[TRT]  layer inception_5b/1x1 copy - 0.015989 ms
+[TRT]  layer pool5/7x7_s1 - 0.058438 ms
+[TRT]  layer loss3/classifier input reformatter 0 - 0.008542 ms
+[TRT]  layer loss3/classifier - 0.308125 ms
+[TRT]  layer prob input reformatter 0 - 0.012864 ms
+[TRT]  layer prob - 0.024479 ms
+[TRT]  layer network time - 108.191010 ms
+class 0950 - 0.978908  (orange)
+class 0951 - 0.020962  (lemon)
+imagenet-console:  'orange_0.jpg' -> 97.89079% class #950 (orange)
+loaded image  fontmapA.png  (256 x 512)  2097152 bytes
+[cuda]  cudaAllocMapped 2097152 bytes, CPU 0x1048a0000 GPU 0x1048a0000
+[cuda]  cudaAllocMapped 8192 bytes, CPU 0x100f62000 GPU 0x100f62000
+imagenet-console:  attempting to save output image to 'output_0.jpg'
+imagenet-console:  completed saving 'output_0.jpg'
+
+shutting down...
+

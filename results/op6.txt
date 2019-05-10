@@ -1,0 +1,20 @@
+ak@nano:/usr/src/tensorrt/bin$ sudo ./trtexec --output=Mconv7_stage2_L2 --deploy=../data/googlenet/pose_estimation.prototxt --fp16 --batch=1
+output: Mconv7_stage2_L2
+deploy: ../data/googlenet/pose_estimation.prototxt
+fp16
+batch: 1
+Input "data": 3x256x456
+Output "Mconv7_stage2_L2": 19x32x57
+name=data, bindingIndex=0, buffers.size()=2
+name=Mconv7_stage2_L2, bindingIndex=1, buffers.size()=2
+Average over 10 runs is 97.9132 ms (host walltime is 99.1999 ms, 99% percentile time is 216.182).
+Average over 10 runs is 83.3922 ms (host walltime is 84.1337 ms, 99% percentile time is 86.0982).
+Average over 10 runs is 84.2686 ms (host walltime is 85.0304 ms, 99% percentile time is 89.9183).
+Average over 10 runs is 83.8901 ms (host walltime is 84.5014 ms, 99% percentile time is 87.7164).
+Average over 10 runs is 84.2852 ms (host walltime is 84.9761 ms, 99% percentile time is 88.8148).
+Average over 10 runs is 84.4388 ms (host walltime is 85.2247 ms, 99% percentile time is 89.4888).
+Average over 10 runs is 84.4007 ms (host walltime is 85.0864 ms, 99% percentile time is 89.0065).
+Average over 10 runs is 84.0598 ms (host walltime is 84.9923 ms, 99% percentile time is 87.9523).
+Average over 10 runs is 84.3271 ms (host walltime is 84.9434 ms, 99% percentile time is 90.0971).
+Average over 10 runs is 84.59 ms (host walltime is 85.4324 ms, 99% percentile time is 89.9089).
+

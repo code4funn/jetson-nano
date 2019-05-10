@@ -1,0 +1,331 @@
+ak@nano:~/Projects/runSpinup$ python3 test1.py 
+Logging data to /tmp/experiments/1557467094/progress.txt
+Saving config:
+
+{
+    "ac_kwargs":	{
+        "hidden_sizes":	[
+            32
+        ]
+    },
+    "actor_critic":	"mlp_actor_critic",
+    "clip_ratio":	0.2,
+    "env_fn":	"functools.partial(<function make at 0x7f8a378158>, 'CartPole-v1')",
+    "epochs":	10,
+    "gamma":	0.99,
+    "lam":	0.97,
+    "logger":	{
+        "<spinup.utils.logx.EpochLogger object at 0x7f3cbb46a0>":	{
+            "epoch_dict":	{},
+            "exp_name":	null,
+            "first_row":	true,
+            "log_current_row":	{},
+            "log_headers":	[],
+            "output_dir":	"/tmp/experiments/1557467094",
+            "output_file":	{
+                "<_io.TextIOWrapper name='/tmp/experiments/1557467094/progress.txt' mode='w' encoding='UTF-8'>":	{
+                    "mode":	"w"
+                }
+            }
+        }
+    },
+    "logger_kwargs":	{},
+    "max_ep_len":	1000,
+    "pi_lr":	0.0003,
+    "save_freq":	10,
+    "seed":	0,
+    "steps_per_epoch":	100,
+    "target_kl":	0.01,
+    "train_pi_iters":	80,
+    "train_v_iters":	80,
+    "vf_lr":	0.001
+}
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/algos/ppo/core.py:31: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+WARNING:tensorflow:From /home/ak/.local/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/algos/ppo/core.py:71: multinomial (from tensorflow.python.ops.random_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.random.categorical instead.
+
+Number of parameters: 	 pi: 226, 	 v: 193
+
+WARNING:tensorflow:From /home/ak/.local/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/utils/mpi_tf.py:63: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, use
+    tf.py_function, which takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    
+2019-05-09 23:44:57.210627: W tensorflow/core/platform/profile_utils/cpu_utils.cc:98] Failed to find bogomips in /proc/cpuinfo; cannot determine CPU frequency
+2019-05-09 23:44:57.211255: I tensorflow/compiler/xla/service/service.cc:161] XLA service 0x220ee630 executing computations on platform Host. Devices:
+2019-05-09 23:44:57.211315: I tensorflow/compiler/xla/service/service.cc:168]   StreamExecutor device (0): <undefined>, <undefined>
+2019-05-09 23:44:57.309916: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:965] ARM64 does not support NUMA - returning NUMA node zero
+2019-05-09 23:44:57.310226: I tensorflow/compiler/xla/service/service.cc:161] XLA service 0x22145d50 executing computations on platform CUDA. Devices:
+2019-05-09 23:44:57.310283: I tensorflow/compiler/xla/service/service.cc:168]   StreamExecutor device (0): NVIDIA Tegra X1, Compute Capability 5.3
+2019-05-09 23:44:57.310618: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: NVIDIA Tegra X1 major: 5 minor: 3 memoryClockRate(GHz): 0.9216
+pciBusID: 0000:00:00.0
+totalMemory: 3.86GiB freeMemory: 658.19MiB
+2019-05-09 23:44:57.310679: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-05-09 23:45:02.515414: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-09 23:45:02.515485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2019-05-09 23:45:02.515511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2019-05-09 23:45:02.515690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 108 MB memory) -> physical GPU (device: 0, name: NVIDIA Tegra X1, pci bus id: 0000:00:00.0, compute capability: 5.3)
+2019-05-09 23:45:03.602850: I tensorflow/stream_executor/dso_loader.cc:153] successfully opened CUDA library libcublas.so.10.0 locally
+Warning: trajectory cut off by epoch at 8 steps.
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/utils/logx.py:226: simple_save (from tensorflow.python.saved_model.simple_save) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.simple_save.
+WARNING:tensorflow:From /home/ak/.local/lib/python3.6/site-packages/tensorflow/python/saved_model/signature_def_utils_impl.py:205: build_tensor_info (from tensorflow.python.saved_model.utils_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.utils.build_tensor_info or tf.compat.v1.saved_model.build_tensor_info.
+Early stopping at step 53 due to reaching max kl.
+---------------------------------------
+|             Epoch |               0 |
+|      AverageEpRet |            15.3 |
+|          StdEpRet |            4.46 |
+|          MaxEpRet |              24 |
+|          MinEpRet |              11 |
+|             EpLen |            15.3 |
+|      AverageVVals |          -0.121 |
+|          StdVVals |           0.382 |
+|          MaxVVals |           0.738 |
+|          MinVVals |          -0.958 |
+| TotalEnvInteracts |             100 |
+|            LossPi |        2.38e-08 |
+|             LossV |             103 |
+|       DeltaLossPi |           -0.02 |
+|        DeltaLossV |             -17 |
+|           Entropy |           0.686 |
+|                KL |          0.0151 |
+|          ClipFrac |            0.17 |
+|          StopIter |              53 |
+|              Time |            8.06 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 3 steps.
+Early stopping at step 47 due to reaching max kl.
+---------------------------------------
+|             Epoch |               1 |
+|      AverageEpRet |            32.3 |
+|          StdEpRet |            12.8 |
+|          MaxEpRet |              50 |
+|          MinEpRet |              20 |
+|             EpLen |            32.3 |
+|      AverageVVals |           0.578 |
+|          StdVVals |           0.655 |
+|          MaxVVals |            1.77 |
+|          MinVVals |          -0.544 |
+| TotalEnvInteracts |             200 |
+|            LossPi |        2.72e-07 |
+|             LossV |             385 |
+|       DeltaLossPi |        -0.00985 |
+|        DeltaLossV |           -64.8 |
+|           Entropy |           0.686 |
+|                KL |          0.0159 |
+|          ClipFrac |            0.01 |
+|          StopIter |              47 |
+|              Time |            9.44 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 17 steps.
+---------------------------------------
+|             Epoch |               2 |
+|      AverageEpRet |            27.7 |
+|          StdEpRet |            9.46 |
+|          MaxEpRet |              40 |
+|          MinEpRet |              17 |
+|             EpLen |            27.7 |
+|      AverageVVals |            2.42 |
+|          StdVVals |           0.321 |
+|          MaxVVals |            2.83 |
+|          MinVVals |            1.62 |
+| TotalEnvInteracts |             300 |
+|            LossPi |       -2.86e-08 |
+|             LossV |             208 |
+|       DeltaLossPi |        -0.00351 |
+|        DeltaLossV |           -54.5 |
+|           Entropy |           0.695 |
+|                KL |          0.0094 |
+|          ClipFrac |               0 |
+|          StopIter |              79 |
+|              Time |            11.1 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 42 steps.
+Early stopping at step 17 due to reaching max kl.
+---------------------------------------
+|             Epoch |               3 |
+|      AverageEpRet |            14.5 |
+|          StdEpRet |            8.44 |
+|          MaxEpRet |              29 |
+|          MinEpRet |               8 |
+|             EpLen |            14.5 |
+|      AverageVVals |            4.83 |
+|          StdVVals |             1.9 |
+|          MaxVVals |            7.89 |
+|          MinVVals |          -0.114 |
+| TotalEnvInteracts |             400 |
+|            LossPi |       -2.62e-08 |
+|             LossV |             218 |
+|       DeltaLossPi |         -0.0307 |
+|        DeltaLossV |           -58.2 |
+|           Entropy |           0.701 |
+|                KL |          0.0184 |
+|          ClipFrac |            0.11 |
+|          StopIter |              17 |
+|              Time |            12.2 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 2 steps.
+Early stopping at step 79 due to reaching max kl.
+---------------------------------------
+|             Epoch |               4 |
+|      AverageEpRet |            16.3 |
+|          StdEpRet |             1.6 |
+|          MaxEpRet |              19 |
+|          MinEpRet |              15 |
+|             EpLen |            16.3 |
+|      AverageVVals |            7.33 |
+|          StdVVals |           0.242 |
+|          MaxVVals |            7.59 |
+|          MinVVals |            6.48 |
+| TotalEnvInteracts |             500 |
+|            LossPi |       -3.81e-08 |
+|             LossV |            20.2 |
+|       DeltaLossPi |        -0.00444 |
+|        DeltaLossV |            -4.3 |
+|           Entropy |            0.67 |
+|                KL |          0.0153 |
+|          ClipFrac |            0.06 |
+|          StopIter |              79 |
+|              Time |            13.9 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 5 steps.
+Early stopping at step 18 due to reaching max kl.
+---------------------------------------
+|             Epoch |               5 |
+|      AverageEpRet |            31.7 |
+|          StdEpRet |            22.3 |
+|          MaxEpRet |              63 |
+|          MinEpRet |              13 |
+|             EpLen |            31.7 |
+|      AverageVVals |            7.86 |
+|          StdVVals |            1.23 |
+|          MaxVVals |            9.38 |
+|          MinVVals |            3.79 |
+| TotalEnvInteracts |             600 |
+|            LossPi |        8.58e-08 |
+|             LossV |             335 |
+|       DeltaLossPi |         -0.0181 |
+|        DeltaLossV |            -108 |
+|           Entropy |           0.678 |
+|                KL |          0.0167 |
+|          ClipFrac |            0.09 |
+|          StopIter |              18 |
+|              Time |              15 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 5 steps.
+---------------------------------------
+|             Epoch |               6 |
+|      AverageEpRet |            47.5 |
+|          StdEpRet |            10.5 |
+|          MaxEpRet |              58 |
+|          MinEpRet |              37 |
+|             EpLen |            47.5 |
+|      AverageVVals |            11.3 |
+|          StdVVals |            1.56 |
+|          MaxVVals |            13.5 |
+|          MinVVals |            6.26 |
+| TotalEnvInteracts |             700 |
+|            LossPi |       -1.31e-07 |
+|             LossV |             229 |
+|       DeltaLossPi |         -0.0211 |
+|        DeltaLossV |           -74.5 |
+|           Entropy |            0.68 |
+|                KL |         0.00248 |
+|          ClipFrac |            0.09 |
+|          StopIter |              79 |
+|              Time |            16.7 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 42 steps.
+Early stopping at step 36 due to reaching max kl.
+---------------------------------------
+|             Epoch |               7 |
+|      AverageEpRet |            19.3 |
+|          StdEpRet |             9.1 |
+|          MaxEpRet |              32 |
+|          MinEpRet |              11 |
+|             EpLen |            19.3 |
+|      AverageVVals |            16.2 |
+|          StdVVals |            2.49 |
+|          MaxVVals |            20.1 |
+|          MinVVals |            9.45 |
+| TotalEnvInteracts |             800 |
+|            LossPi |       -2.38e-09 |
+|             LossV |             206 |
+|       DeltaLossPi |         -0.0181 |
+|        DeltaLossV |           -26.8 |
+|           Entropy |            0.68 |
+|                KL |          0.0158 |
+|          ClipFrac |            0.07 |
+|          StopIter |              36 |
+|              Time |              18 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 4 steps.
+---------------------------------------
+|             Epoch |               8 |
+|      AverageEpRet |              32 |
+|          StdEpRet |            9.42 |
+|          MaxEpRet |              45 |
+|          MinEpRet |              23 |
+|             EpLen |              32 |
+|      AverageVVals |            18.8 |
+|          StdVVals |            3.05 |
+|          MaxVVals |            24.8 |
+|          MinVVals |            10.8 |
+| TotalEnvInteracts |             900 |
+|            LossPi |       -1.67e-08 |
+|             LossV |            99.2 |
+|       DeltaLossPi |         -0.0101 |
+|        DeltaLossV |           -17.6 |
+|           Entropy |           0.668 |
+|                KL |       -0.000891 |
+|          ClipFrac |            0.02 |
+|          StopIter |              79 |
+|              Time |            19.6 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 3 steps.
+Early stopping at step 22 due to reaching max kl.
+---------------------------------------
+|             Epoch |               9 |
+|      AverageEpRet |            24.2 |
+|          StdEpRet |            9.81 |
+|          MaxEpRet |              38 |
+|          MinEpRet |              14 |
+|             EpLen |            24.2 |
+|      AverageVVals |            18.6 |
+|          StdVVals |            1.55 |
+|          MaxVVals |            21.2 |
+|          MinVVals |            13.2 |
+| TotalEnvInteracts |           1e+03 |
+|            LossPi |        2.21e-08 |
+|             LossV |            91.4 |
+|       DeltaLossPi |         -0.0215 |
+|        DeltaLossV |             -17 |
+|           Entropy |           0.691 |
+|                KL |          0.0162 |
+|          ClipFrac |            0.02 |
+|          StopIter |              22 |
+|              Time |            25.5 |
+---------------------------------------
+.
+----------------------------------------------------------------------
+Ran 1 test in 34.253s
+
+OK
+

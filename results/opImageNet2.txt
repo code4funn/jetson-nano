@@ -1,0 +1,133 @@
+ak@nano:~/jetson-inference/build/aarch64/bin$ ./imagenet-console granny_smith_1.jpg output_1.jpg
+imagenet-console
+  args (3):  0 [./imagenet-console]  1 [granny_smith_1.jpg]  2 [output_1.jpg]  
+
+
+imageNet -- loading classification network model from:
+         -- prototxt     networks/googlenet.prototxt
+         -- model        networks/bvlc_googlenet.caffemodel
+         -- class_labels networks/ilsvrc12_synset_words.txt
+         -- input_blob   'data'
+         -- output_blob  'prob'
+         -- batch_size   2
+
+[TRT]  TensorRT version 5.0.6
+[TRT]  detected model format - caffe  (extension '.caffemodel')
+[TRT]  desired precision specified for GPU: FASTEST
+[TRT]  requested fasted precision for device GPU without providing valid calibrator, disabling INT8
+[TRT]  native precisions detected for GPU:  FP32, FP16
+[TRT]  selecting fastest native precision for GPU:  FP16
+[TRT]  attempting to open engine cache file networks/bvlc_googlenet.caffemodel.2.1.GPU.FP16.engine
+[TRT]  loading network profile from engine cache... networks/bvlc_googlenet.caffemodel.2.1.GPU.FP16.engine
+[TRT]  device GPU, networks/bvlc_googlenet.caffemodel loaded
+[TRT]  device GPU, CUDA engine context initialized with 2 bindings
+[TRT]  binding -- index   0
+               -- name    'data'
+               -- type    FP32
+               -- in/out  INPUT
+               -- # dims  3
+               -- dim #0  3 (CHANNEL)
+               -- dim #1  224 (SPATIAL)
+               -- dim #2  224 (SPATIAL)
+[TRT]  binding -- index   1
+               -- name    'prob'
+               -- type    FP32
+               -- in/out  OUTPUT
+               -- # dims  3
+               -- dim #0  1000 (CHANNEL)
+               -- dim #1  1 (SPATIAL)
+               -- dim #2  1 (SPATIAL)
+[TRT]  binding to input 0 data  binding index:  0
+[TRT]  binding to input 0 data  dims (b=2 c=3 h=224 w=224) size=1204224
+[cuda]  cudaAllocMapped 1204224 bytes, CPU 0x100e30000 GPU 0x100e30000
+[TRT]  binding to output 0 prob  binding index:  1
+[TRT]  binding to output 0 prob  dims (b=2 c=1000 h=1 w=1) size=8000
+[cuda]  cudaAllocMapped 8000 bytes, CPU 0x100f60000 GPU 0x100f60000
+device GPU, networks/bvlc_googlenet.caffemodel initialized.
+[TRT]  networks/bvlc_googlenet.caffemodel loaded
+imageNet -- loaded 1000 class info entries
+networks/bvlc_googlenet.caffemodel initialized.
+loaded image  granny_smith_1.jpg  (1000 x 1000)  16000000 bytes
+[cuda]  cudaAllocMapped 16000000 bytes, CPU 0x101060000 GPU 0x101060000
+[TRT]  layer conv1/7x7_s2 + conv1/relu_7x7 - 18.557137 ms
+[TRT]  layer pool1/3x3_s2 - 3.649843 ms
+[TRT]  layer pool1/norm1 input reformatter 0 - 1.983907 ms
+[TRT]  layer pool1/norm1 - 0.599583 ms
+[TRT]  layer conv2/3x3_reduce + conv2/relu_3x3_reduce - 1.354687 ms
+[TRT]  layer conv2/3x3 + conv2/relu_3x3 - 27.004219 ms
+[TRT]  layer conv2/norm2 - 1.573177 ms
+[TRT]  layer pool2/3x3_s2 - 2.985261 ms
+[TRT]  layer inception_3a/1x1 + inception_3a/relu_1x1 || inception_3a/3x3_reduce + inception_3a/relu_3x3_reduce || inception_3a/5x5_reduce + inception_3a/relu_5x5_reduce - 3.701614 ms
+[TRT]  layer inception_3a/3x3 + inception_3a/relu_3x3 - 1.437240 ms
+[TRT]  layer inception_3a/5x5 + inception_3a/relu_5x5 - 0.207708 ms
+[TRT]  layer inception_3a/pool - 1.539271 ms
+[TRT]  layer inception_3a/pool_proj + inception_3a/relu_pool_proj - 0.148385 ms
+[TRT]  layer inception_3a/1x1 copy - 0.026511 ms
+[TRT]  layer inception_3b/1x1 + inception_3b/relu_1x1 || inception_3b/3x3_reduce + inception_3b/relu_3x3_reduce || inception_3b/5x5_reduce + inception_3b/relu_5x5_reduce - 0.997239 ms
+[TRT]  layer inception_3b/3x3 + inception_3b/relu_3x3 - 2.180313 ms
+[TRT]  layer inception_3b/5x5 + inception_3b/relu_5x5 - 0.955052 ms
+[TRT]  layer inception_3b/pool - 0.310260 ms
+[TRT]  layer inception_3b/pool_proj + inception_3b/relu_pool_proj - 0.233438 ms
+[TRT]  layer inception_3b/1x1 copy - 0.044792 ms
+[TRT]  layer pool3/3x3_s2 - 0.255156 ms
+[TRT]  layer inception_4a/1x1 + inception_4a/relu_1x1 || inception_4a/3x3_reduce + inception_4a/relu_3x3_reduce || inception_4a/5x5_reduce + inception_4a/relu_5x5_reduce - 0.514167 ms
+[TRT]  layer inception_4a/3x3 + inception_4a/relu_3x3 - 0.772604 ms
+[TRT]  layer inception_4a/5x5 + inception_4a/relu_5x5 - 0.134635 ms
+[TRT]  layer inception_4a/pool - 0.122865 ms
+[TRT]  layer inception_4a/pool_proj + inception_4a/relu_pool_proj - 0.143125 ms
+[TRT]  layer inception_4a/1x1 copy - 0.021927 ms
+[TRT]  layer inception_4b/1x1 + inception_4b/relu_1x1 || inception_4b/3x3_reduce + inception_4b/relu_3x3_reduce || inception_4b/5x5_reduce + inception_4b/relu_5x5_reduce - 0.819427 ms
+[TRT]  layer inception_4b/3x3 + inception_4b/relu_3x3 - 0.816406 ms
+[TRT]  layer inception_4b/5x5 + inception_4b/relu_5x5 - 0.186719 ms
+[TRT]  layer inception_4b/pool - 0.160052 ms
+[TRT]  layer inception_4b/pool_proj + inception_4b/relu_pool_proj - 0.147344 ms
+[TRT]  layer inception_4b/1x1 copy - 0.019791 ms
+[TRT]  layer inception_4c/1x1 + inception_4c/relu_1x1 || inception_4c/3x3_reduce + inception_4c/relu_3x3_reduce || inception_4c/5x5_reduce + inception_4c/relu_5x5_reduce - 0.739532 ms
+[TRT]  layer inception_4c/3x3 + inception_4c/relu_3x3 - 1.148489 ms
+[TRT]  layer inception_4c/5x5 + inception_4c/relu_5x5 - 0.178386 ms
+[TRT]  layer inception_4c/pool - 0.142864 ms
+[TRT]  layer inception_4c/pool_proj + inception_4c/relu_pool_proj - 0.150521 ms
+[TRT]  layer inception_4c/1x1 copy - 0.018073 ms
+[TRT]  layer inception_4d/1x1 + inception_4d/relu_1x1 || inception_4d/3x3_reduce + inception_4d/relu_3x3_reduce || inception_4d/5x5_reduce + inception_4d/relu_5x5_reduce - 0.801042 ms
+[TRT]  layer inception_4d/3x3 + inception_4d/relu_3x3 - 2.064010 ms
+[TRT]  layer inception_4d/5x5 + inception_4d/relu_5x5 input reformatter 0 - 0.018854 ms
+[TRT]  layer inception_4d/5x5 + inception_4d/relu_5x5 - 0.365938 ms
+[TRT]  layer inception_4d/5x5 + inception_4d/relu_5x5 output reformatter 0 - 0.032031 ms
+[TRT]  layer inception_4d/pool - 0.160052 ms
+[TRT]  layer inception_4d/pool_proj + inception_4d/relu_pool_proj - 0.147604 ms
+[TRT]  layer inception_4d/1x1 copy - 0.015625 ms
+[TRT]  layer inception_4e/1x1 + inception_4e/relu_1x1 || inception_4e/3x3_reduce + inception_4e/relu_3x3_reduce || inception_4e/5x5_reduce + inception_4e/relu_5x5_reduce - 0.871771 ms
+[TRT]  layer inception_4e/3x3 + inception_4e/relu_3x3 - 0.881979 ms
+[TRT]  layer inception_4e/5x5 + inception_4e/relu_5x5 - 0.348959 ms
+[TRT]  layer inception_4e/pool - 0.166041 ms
+[TRT]  layer inception_4e/pool_proj + inception_4e/relu_pool_proj - 0.354531 ms
+[TRT]  layer inception_4e/1x1 copy - 0.027865 ms
+[TRT]  layer pool4/3x3_s2 - 0.152135 ms
+[TRT]  layer inception_5a/1x1 + inception_5a/relu_1x1 || inception_5a/3x3_reduce + inception_5a/relu_3x3_reduce || inception_5a/5x5_reduce + inception_5a/relu_5x5_reduce - 0.630730 ms
+[TRT]  layer inception_5a/3x3 + inception_5a/relu_3x3 - 0.530677 ms
+[TRT]  layer inception_5a/5x5 + inception_5a/relu_5x5 - 0.211718 ms
+[TRT]  layer inception_5a/pool - 0.071198 ms
+[TRT]  layer inception_5a/pool_proj + inception_5a/relu_pool_proj - 1.549167 ms
+[TRT]  layer inception_5a/1x1 copy - 0.015625 ms
+[TRT]  layer inception_5b/1x1 + inception_5b/relu_1x1 || inception_5b/3x3_reduce + inception_5b/relu_3x3_reduce || inception_5b/5x5_reduce + inception_5b/relu_5x5_reduce - 0.749375 ms
+[TRT]  layer inception_5b/3x3 + inception_5b/relu_3x3 - 0.696823 ms
+[TRT]  layer inception_5b/5x5 + inception_5b/relu_5x5 - 1.118385 ms
+[TRT]  layer inception_5b/pool - 0.087500 ms
+[TRT]  layer inception_5b/pool_proj + inception_5b/relu_pool_proj - 0.210417 ms
+[TRT]  layer inception_5b/1x1 copy - 0.022917 ms
+[TRT]  layer pool5/7x7_s1 - 0.057916 ms
+[TRT]  layer loss3/classifier input reformatter 0 - 0.008959 ms
+[TRT]  layer loss3/classifier - 0.317396 ms
+[TRT]  layer prob input reformatter 0 - 0.012864 ms
+[TRT]  layer prob - 0.023802 ms
+[TRT]  layer network time - 88.705620 ms
+class 0948 - 0.999969  (Granny Smith)
+imagenet-console:  'granny_smith_1.jpg' -> 99.99693% class #948 (Granny Smith)
+loaded image  fontmapA.png  (256 x 512)  2097152 bytes
+[cuda]  cudaAllocMapped 2097152 bytes, CPU 0x101fb0000 GPU 0x101fb0000
+[cuda]  cudaAllocMapped 8192 bytes, CPU 0x100f62000 GPU 0x100f62000
+imagenet-console:  attempting to save output image to 'output_1.jpg'
+imagenet-console:  completed saving 'output_1.jpg'
+
+shutting down...
+

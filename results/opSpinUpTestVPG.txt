@@ -1,0 +1,301 @@
+ak@nano:~/Projects/runSpinup$ python3 test2.py 
+Logging data to /tmp/experiments/1557468025/progress.txt
+Saving config:
+
+{
+    "ac_kwargs":	{
+        "hidden_sizes":	[
+            32
+        ]
+    },
+    "actor_critic":	"mlp_actor_critic",
+    "env_fn":	"functools.partial(<function make at 0x7f81e44158>, 'CartPole-v1')",
+    "epochs":	10,
+    "gamma":	0.99,
+    "lam":	0.97,
+    "logger":	{
+        "<spinup.utils.logx.EpochLogger object at 0x7f346806a0>":	{
+            "epoch_dict":	{},
+            "exp_name":	null,
+            "first_row":	true,
+            "log_current_row":	{},
+            "log_headers":	[],
+            "output_dir":	"/tmp/experiments/1557468025",
+            "output_file":	{
+                "<_io.TextIOWrapper name='/tmp/experiments/1557468025/progress.txt' mode='w' encoding='UTF-8'>":	{
+                    "mode":	"w"
+                }
+            }
+        }
+    },
+    "logger_kwargs":	{},
+    "max_ep_len":	1000,
+    "pi_lr":	0.0003,
+    "save_freq":	10,
+    "seed":	0,
+    "steps_per_epoch":	100,
+    "train_v_iters":	80,
+    "vf_lr":	0.001
+}
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/algos/vpg/core.py:31: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+WARNING:tensorflow:From /home/ak/.local/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/algos/vpg/core.py:71: multinomial (from tensorflow.python.ops.random_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.random.categorical instead.
+
+Number of parameters: 	 pi: 226, 	 v: 193
+
+WARNING:tensorflow:From /home/ak/.local/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/utils/mpi_tf.py:63: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, use
+    tf.py_function, which takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    
+2019-05-10 00:00:26.960401: W tensorflow/core/platform/profile_utils/cpu_utils.cc:98] Failed to find bogomips in /proc/cpuinfo; cannot determine CPU frequency
+2019-05-10 00:00:26.960968: I tensorflow/compiler/xla/service/service.cc:161] XLA service 0x20255f10 executing computations on platform Host. Devices:
+2019-05-10 00:00:26.961032: I tensorflow/compiler/xla/service/service.cc:168]   StreamExecutor device (0): <undefined>, <undefined>
+2019-05-10 00:00:27.046234: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:965] ARM64 does not support NUMA - returning NUMA node zero
+2019-05-10 00:00:27.046516: I tensorflow/compiler/xla/service/service.cc:161] XLA service 0x202ad630 executing computations on platform CUDA. Devices:
+2019-05-10 00:00:27.046571: I tensorflow/compiler/xla/service/service.cc:168]   StreamExecutor device (0): NVIDIA Tegra X1, Compute Capability 5.3
+2019-05-10 00:00:27.047012: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: NVIDIA Tegra X1 major: 5 minor: 3 memoryClockRate(GHz): 0.9216
+pciBusID: 0000:00:00.0
+totalMemory: 3.86GiB freeMemory: 671.16MiB
+2019-05-10 00:00:27.047079: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-05-10 00:00:28.137393: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-10 00:00:28.137469: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2019-05-10 00:00:28.137504: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2019-05-10 00:00:28.137691: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 202 MB memory) -> physical GPU (device: 0, name: NVIDIA Tegra X1, pci bus id: 0000:00:00.0, compute capability: 5.3)
+2019-05-10 00:00:29.449715: I tensorflow/stream_executor/dso_loader.cc:153] successfully opened CUDA library libcublas.so.10.0 locally
+Warning: trajectory cut off by epoch at 8 steps.
+WARNING:tensorflow:From /home/ak/Projects/spinningup/spinup/utils/logx.py:226: simple_save (from tensorflow.python.saved_model.simple_save) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.simple_save.
+WARNING:tensorflow:From /home/ak/.local/lib/python3.6/site-packages/tensorflow/python/saved_model/signature_def_utils_impl.py:205: build_tensor_info (from tensorflow.python.saved_model.utils_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.utils.build_tensor_info or tf.compat.v1.saved_model.build_tensor_info.
+---------------------------------------
+|             Epoch |               0 |
+|      AverageEpRet |            15.3 |
+|          StdEpRet |            2.81 |
+|          MaxEpRet |              19 |
+|          MinEpRet |              10 |
+|             EpLen |            15.3 |
+|      AverageVVals |          -0.102 |
+|          StdVVals |           0.373 |
+|          MaxVVals |           0.738 |
+|          MinVVals |          -0.858 |
+| TotalEnvInteracts |             100 |
+|            LossPi |         0.00834 |
+|             LossV |            92.6 |
+|       DeltaLossPi |       -0.000367 |
+|        DeltaLossV |           -16.6 |
+|           Entropy |           0.689 |
+|                KL |        0.000194 |
+|              Time |            6.44 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 19 steps.
+---------------------------------------
+|             Epoch |               1 |
+|      AverageEpRet |            20.2 |
+|          StdEpRet |              10 |
+|          MaxEpRet |              37 |
+|          MinEpRet |              12 |
+|             EpLen |            20.2 |
+|      AverageVVals |            1.04 |
+|          StdVVals |           0.464 |
+|          MaxVVals |             1.8 |
+|          MinVVals |          -0.721 |
+| TotalEnvInteracts |             200 |
+|            LossPi |        0.000318 |
+|             LossV |             186 |
+|       DeltaLossPi |       -0.000188 |
+|        DeltaLossV |           -44.9 |
+|           Entropy |           0.701 |
+|                KL |       -0.000183 |
+|              Time |            7.37 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 23 steps.
+---------------------------------------
+|             Epoch |               2 |
+|      AverageEpRet |            15.4 |
+|          StdEpRet |            4.45 |
+|          MaxEpRet |              23 |
+|          MinEpRet |              10 |
+|             EpLen |            15.4 |
+|      AverageVVals |             1.9 |
+|          StdVVals |             2.7 |
+|          MaxVVals |            7.43 |
+|          MinVVals |            -4.1 |
+| TotalEnvInteracts |             300 |
+|            LossPi |          0.0147 |
+|             LossV |            94.7 |
+|       DeltaLossPi |       -0.000554 |
+|        DeltaLossV |           -32.6 |
+|           Entropy |           0.686 |
+|                KL |        0.000253 |
+|              Time |            8.29 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 2 steps.
+---------------------------------------
+|             Epoch |               3 |
+|      AverageEpRet |            19.6 |
+|          StdEpRet |            7.74 |
+|          MaxEpRet |              30 |
+|          MinEpRet |              12 |
+|             EpLen |            19.6 |
+|      AverageVVals |            3.87 |
+|          StdVVals |            1.42 |
+|          MaxVVals |            5.94 |
+|          MinVVals |           0.243 |
+| TotalEnvInteracts |             400 |
+|            LossPi |          0.0276 |
+|             LossV |             102 |
+|       DeltaLossPi |        -0.00113 |
+|        DeltaLossV |           -34.8 |
+|           Entropy |           0.672 |
+|                KL |        0.000942 |
+|              Time |            9.24 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 14 steps.
+---------------------------------------
+|             Epoch |               4 |
+|      AverageEpRet |            17.2 |
+|          StdEpRet |            7.17 |
+|          MaxEpRet |              31 |
+|          MinEpRet |              11 |
+|             EpLen |            17.2 |
+|      AverageVVals |            6.72 |
+|          StdVVals |           0.521 |
+|          MaxVVals |            7.75 |
+|          MinVVals |            4.29 |
+| TotalEnvInteracts |             500 |
+|            LossPi |          0.0161 |
+|             LossV |            57.3 |
+|       DeltaLossPi |       -0.000702 |
+|        DeltaLossV |           -14.7 |
+|           Entropy |           0.685 |
+|                KL |        0.000244 |
+|              Time |            10.2 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 31 steps.
+---------------------------------------
+|             Epoch |               5 |
+|      AverageEpRet |            17.2 |
+|          StdEpRet |            3.27 |
+|          MaxEpRet |              21 |
+|          MinEpRet |              12 |
+|             EpLen |            17.2 |
+|      AverageVVals |            8.26 |
+|          StdVVals |           0.474 |
+|          MaxVVals |            9.33 |
+|          MinVVals |             6.9 |
+| TotalEnvInteracts |             600 |
+|            LossPi |         0.00737 |
+|             LossV |            80.1 |
+|       DeltaLossPi |       -0.000299 |
+|        DeltaLossV |           -18.8 |
+|           Entropy |           0.695 |
+|                KL |       -0.000202 |
+|              Time |            11.1 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 2 steps.
+---------------------------------------
+|             Epoch |               6 |
+|      AverageEpRet |            19.6 |
+|          StdEpRet |            6.18 |
+|          MaxEpRet |              31 |
+|          MinEpRet |              14 |
+|             EpLen |            19.6 |
+|      AverageVVals |            10.7 |
+|          StdVVals |           0.589 |
+|          MaxVVals |            11.8 |
+|          MinVVals |            8.95 |
+| TotalEnvInteracts |             700 |
+|            LossPi |         0.00345 |
+|             LossV |            37.8 |
+|       DeltaLossPi |       -6.47e-05 |
+|        DeltaLossV |           -2.16 |
+|           Entropy |           0.697 |
+|                KL |       -0.000215 |
+|              Time |              12 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 8 steps.
+---------------------------------------
+|             Epoch |               7 |
+|      AverageEpRet |            18.4 |
+|          StdEpRet |            4.63 |
+|          MaxEpRet |              23 |
+|          MinEpRet |              11 |
+|             EpLen |            18.4 |
+|      AverageVVals |            11.1 |
+|          StdVVals |           0.757 |
+|          MaxVVals |            11.8 |
+|          MinVVals |            7.92 |
+| TotalEnvInteracts |             800 |
+|            LossPi |       -0.000308 |
+|             LossV |            24.5 |
+|       DeltaLossPi |       -8.74e-06 |
+|        DeltaLossV |           -5.78 |
+|           Entropy |           0.695 |
+|                KL |       -0.000221 |
+|              Time |            12.9 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 13 steps.
+---------------------------------------
+|             Epoch |               8 |
+|      AverageEpRet |            21.8 |
+|          StdEpRet |            8.76 |
+|          MaxEpRet |              35 |
+|          MinEpRet |              11 |
+|             EpLen |            21.8 |
+|      AverageVVals |            10.9 |
+|          StdVVals |            1.33 |
+|          MaxVVals |            12.4 |
+|          MinVVals |            6.33 |
+| TotalEnvInteracts |             900 |
+|            LossPi |         0.00924 |
+|             LossV |            49.3 |
+|       DeltaLossPi |       -0.000391 |
+|        DeltaLossV |           -8.43 |
+|           Entropy |           0.693 |
+|                KL |       -6.41e-05 |
+|              Time |            13.9 |
+---------------------------------------
+Warning: trajectory cut off by epoch at 10 steps.
+---------------------------------------
+|             Epoch |               9 |
+|      AverageEpRet |              18 |
+|          StdEpRet |            8.02 |
+|          MaxEpRet |              31 |
+|          MinEpRet |               8 |
+|             EpLen |              18 |
+|      AverageVVals |            12.2 |
+|          StdVVals |            1.42 |
+|          MaxVVals |            13.6 |
+|          MinVVals |            7.45 |
+| TotalEnvInteracts |           1e+03 |
+|            LossPi |         0.00955 |
+|             LossV |            34.8 |
+|       DeltaLossPi |       -0.000376 |
+|        DeltaLossV |           -7.59 |
+|           Entropy |           0.692 |
+|                KL |       -8.86e-06 |
+|              Time |              19 |
+---------------------------------------
+.
+----------------------------------------------------------------------
+Ran 1 test in 23.447s
+
+OK
+
